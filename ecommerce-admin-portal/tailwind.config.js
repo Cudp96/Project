@@ -9,7 +9,10 @@ module.exports = {
     extend: {
       colors: {
       },
+      fontFamily: {
+        'mogra': ['Mogra', 'cursive']
     },
   },
   plugins: [],
+  }
 }

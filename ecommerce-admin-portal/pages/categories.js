@@ -1,8 +1,9 @@
-import React from 'react'
+import Layout from '@/components/Layout'
 
 const categories = () => {
    return (
-      <div>categories</div>
+      <Layout>categories</Layout>
+      
    )
 }
 
