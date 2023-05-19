@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
   };
   if (!session) {
     return (
-      <div className="flex justify-center items-center min-h h-screen flex">
+      <div className="flex justify-center items-center min-h h-screen ">
         <span>Hello</span>
         <button
           onClick={(e) => signInHandler(e)}

@@ -4,4 +4,21 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Mogra&display=swap" rel="stylesheet');
 
-
+@layer base {
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+table.basic{
+    @apply w-full rounded-sm bg-white shadow-md;
+}
+@layer components {
+  .card {
+    background-color: theme('colors.white');
+    border-radius: theme('borderRadius.lg');
+    padding: theme('spacing.6');
+    box-shadow: theme('boxShadow.xl');
+  }
+} 

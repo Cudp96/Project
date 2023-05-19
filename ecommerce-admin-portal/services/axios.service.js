@@ -1,8 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 
-export const getProducts = async() =>{
-
-    const response = await axios('/api/products')
-    return response;
-
-}
+export const getProducts = async () => {
+  const response = await axios.get("/api/products");
+  return response;
+};

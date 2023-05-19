@@ -9,7 +9,7 @@ const register = () => {
           <span className="font-semibold text-xl">Create an account</span>
         </div>
         <div className="flex gap-4 justify-center">
-          <div>
+          <div className=''>
             <label>Full-Name:</label>
             <input
               type="text"
