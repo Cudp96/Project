@@ -29,7 +29,7 @@ const Sidebar = () => {
           />
         </svg>
       </div>
-      <aside className=" hidden  md:block flex flex-col  bg-orange-300 min-h h-screen ">
+      <aside className=" hidden  md:block flex flex-col  bg-orange-300 min-h h-screen sticky top-0 left-0">
         <div>
           <Logo />
         </div>

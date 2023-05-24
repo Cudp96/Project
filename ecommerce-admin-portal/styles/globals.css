@@ -22,3 +22,13 @@ table.basic{
     box-shadow: theme('boxShadow.xl');
   }
 } 
+
+table.basic tr td{
+  @apply px-3 py-4;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  @apply bg-gray-100;
+}

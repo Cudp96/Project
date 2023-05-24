@@ -1,13 +1,22 @@
 import Nav from "./Sidebar";
 import { signIn, useSession } from "next-auth/react";
+import Loader from "./Loader";
 
 const Layout = ({ children }) => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
+  // console.log(status);
 
   const signInHandler = (e) => {
     e.preventDefault();
     signIn("google");
   };
+
+  if (status === "loading") {
+    return (
+      <Loader/> 
+    )
+  }
+
   if (!session) {
     return (
       <div className="flex justify-center items-center min-h h-screen ">
