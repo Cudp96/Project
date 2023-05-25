@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { getProducts } from "@/services/axios.service";
+import axios from "axios";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -9,22 +10,24 @@ const Products = () => {
   useEffect(() => {
     getProducts().then((response) => {
       setProducts(response.data);
-      console.log(response.data)
+      // console.log(response.data)
     });
   });
 
   const deleteProduct = async (e, product) => {
     e.preventDefault();
+    console.log('clicked delete product')
     try {
-      await axios.delete("/api/products?id=", product._id);
-      const data = product.filter((prod) => {
-        return prod._id !== product._id;
-      });
-      setProducts(data);
+       await axios.delete('/api/products?id=' + product._id);
+       const data = products.filter((prod) => {
+          return prod._id !== product._id;
+        })
+        console.log(data);
+       setProducts(data);
     } catch (error) {
-      console.log(error);
+       console.log(error)
     }
-  };
+ }
 
   return (
     <Layout>
@@ -57,11 +60,11 @@ const Products = () => {
               <div className="">
                 <span className="">{product.title}</span>
               </div>
-              <div className="">
+              {/* <div className="">
                 <span className="text-justify">{product.category}</span>
-              </div>
+              </div> */}
               <div className="">
-                <span className="">{product.price}</span>
+                <span className=""> $ {product.price}</span>
               </div>
               <div className="">
                 <button className="bg-cyan-600 py-1 px-1 rounded hover:bg-cyan-700 border border-black-750">
@@ -80,8 +83,8 @@ const Products = () => {
                     />
                   </svg>
                 </button>
-                <button className="bg-cyan-600 py-1 px-1 ml-1 rounded hover:bg-cyan-700 border border-black-750">
-                  <svg
+                <button onClick={(e) => deleteProduct(e, product)} className="bg-cyan-600 py-1 px-1 ml-1 rounded hover:bg-cyan-700 border border-black-750">
+                  <svg 
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"

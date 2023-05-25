@@ -1,19 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "./Logo";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 
 const Sidebar = () => {
+  const [openMenu, setOpenMenu] = useState(false)
   const activeLink =
     " flex rounded-sm gap-2 text-white font-extrabold bg-orange-500 py-4 px-2";
   const inActiveLink = "flex gap-2 p-1 hover:bg-orange-400 py-4 px-2 ";
 
   const { pathname } = useRouter();
 
+  const toggleMenu = (e)=>{
+    {
+
+    }
+    
+  }
+
   return (
     <>
-      <div className=" block md:hidden">
+      <div className="  flex justify-center mt-5   md:hidden" onClick={(e)=>toggleMenu(e)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
